@@ -21,9 +21,11 @@ function ConvertHandler() {
   };
   
   this.getUnit = function(input) {
+    const validUnits = ['gal', 'L', 'lbs', 'kg', 'mi', 'km'];
     const split = input.split(/[0-9]/);
     let result = split[split.length-1].toLowerCase();
     if(result === 'l') result = 'L';
+    if(!validUnits.includes(result)) result = 'invalid unit';
     return result;
   };
   
